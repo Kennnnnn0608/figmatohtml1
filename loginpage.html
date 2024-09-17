@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .login-form {
+      width: 300px;
+      margin: 100px auto;
+      background-color: #f2f2f2;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input.invalid {
+      border-color: red;
+    }
+    button {
+      background-color: #00c3ff;
+      color: white;
+      padding: 14px 20px;
+      margin: 8px 0;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #00c3ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-form">
+    <center><h2>Login</h2></center>
+    <input type="text" placeholder="Username" id="username">
+    <input type="password" placeholder="Password" id="password">
+    <button id="submit">Login</button>
+    <p id="error-message" style="color: red; display: none;">Invalid username or password. Please try again.</p>
+  </div>
+
+  <script>
+    const btnLogin = document.getElementById('submit');
+    const errorMessage = document.getElementById('error-message');
+
+    btnLogin.addEventListener('click', function() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Check if username and password are correct
+      if (username === 'kenzie' && password === '123') {
+        window.location = 'landingpage.html';
+      } else {
+        document.getElementById('password').classList.add('invalid');
+        errorMessage.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
